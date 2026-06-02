@@ -1,0 +1,290 @@
+/* Core Styling Variables & Dynamic Background Setup */
+body {
+    margin: 0;
+    font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    /* Custom Color Shift: Transitions from deep vibrant blue down to midnight black-blue */
+    background: linear-gradient(135deg, #0f172a, #020617, #1e3a8a, #030712);
+    background-size: 300% 300%;
+    animation: gradientShift 12s ease infinite;
+    color: #f8fafc;
+    overflow-x: hidden;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Master Core Container Slate */
+.container {
+    text-align: center;
+    background: rgba(15, 23, 42, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    padding: 32px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.animated-header h1 {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-top: 0;
+    margin-bottom: 24px;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.5px;
+}
+
+/* Form Controls and Operational Triggers */
+input[type="text"] {
+    width: 100%;
+    background-color: rgba(2, 6, 23, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 14px;
+    color: #38bdf8;
+    font-size: 1rem;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+    margin-bottom: 16px;
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+}
+
+button {
+    width: 100%;
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    color: #ffffff;
+    border: none;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 700;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+button:hover {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.3);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+#loading {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 16px;
+}
+
+/* Premium Dashboard Metrics Grid Layout */
+#predictionResults {
+    margin-top: 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+    animation: fadeInUp 0.4s ease-out;
+}
+
+#predictionResults h2 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #94a3b8;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    text-align: left;
+}
+
+.metric-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Scaled Primary Analytics View Display */
+.metric-card.primary-target {
+    grid-column: 1 / -1;
+    background: rgba(16, 185, 129, 0.06);
+    border-color: rgba(16, 185, 129, 0.25);
+    text-align: center;
+    padding: 20px;
+}
+
+.card-label {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+    font-weight: 600;
+}
+
+.card-value {
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin: 6px 0;
+}
+
+.primary-target .card-value {
+    font-size: 2.4rem;
+    color: #10b981; /* Emerald Green prediction output */
+    letter-spacing: -0.5px;
+}
+
+.card-subtext {
+    font-size: 0.85rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+/* Financial Micro badge configurations */
+.indicators-panel {
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.indicator-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: #cbd5e1;
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 3px 8px;
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 0.78rem;
+    color: #f1f5f9;
+}
+
+/* Modular Information Side panels (Desktop layout adaptive) */
+.project-info, .helpful-links {
+    position: absolute;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 16px;
+    max-width: 260px;
+    box-sizing: border-box;
+}
+
+.top-left { top: 20px; left: 20px; }
+.top-right { top: 20px; right: 20px; }
+
+.project-info h3, .helpful-links h3 {
+    margin-top: 0;
+    font-size: 0.9rem;
+    color: #38bdf8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.project-info p, .helpful-links ul {
+    margin: 0;
+    font-size: 0.8rem;
+    color: #94a3b8;
+    line-height: 1.4;
+    padding-left: 0;
+    list-style: none;
+}
+
+/* Bottom Ticker Carousel Component */
+#trendingMarket {
+    position: fixed;
+    bottom: 20px;
+    width: calc(100% - 40px);
+    max-width: 500px;
+    background: rgba(15, 23, 42, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 12px 20px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#trendingMarket h2 {
+    margin: 0 0 6px 0;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #94a3b8;
+}
+
+#trendingMarketList {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.trending-item {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* Standardized Value Color Tokens */
+.positive { color: #10b981 !important; }
+.negative { color: #ef4444 !important; }
+
+/* Desktop view constraint protection overrides */
+@media (max-width: 1024px) {
+    .project-info, .helpful-links, #trendingMarket {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        max-width: 500px;
+        margin-top: 16px;
+    }
+    body { justify-content: flex-start; padding-bottom: 40px; }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
